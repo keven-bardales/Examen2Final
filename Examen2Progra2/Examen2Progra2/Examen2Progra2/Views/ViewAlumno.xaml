@@ -1,0 +1,31 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="Examen2Progra2.Views.ViewAlumno"
+          BackgroundColor="#00378F">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Orientation="Horizontal" Margin="10,20">
+                <Label Text="Alumno:" TextColor="White" FontAttributes="Bold" Margin="0,0,10,0" VerticalOptions="CenterAndExpand" />
+                <Label Text="{Binding Nombre}" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                <Label Text="Promedio:" TextColor="White" FontAttributes="Bold" Margin="10,0,10,0" VerticalOptions="CenterAndExpand" />
+                <Label Text="{Binding Promedio}" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <Label Text="Asistencias:" Margin="10,5,0,0"/>
+                <Label Text="Cantidad de asistencias:" Margin="5,5,0,0"/>
+                <Label Text="{Binding AsistenciasCount}" Margin="5,0,0,0"/>
+                <Label Text="Cantidad de inasistencias:" Margin="5,10,0,0"/>
+                <Label Text="{Binding InasistenciasCount}" Margin="5,0,0,0"/>
+                <Button Text="Calcular Nota" WidthRequest="50" HeightRequest="50" Margin="10,20" FontSize="Small" Padding="10" CornerRadius="25" Command="{Binding CalcNotaCommand}" CommandParameter="2" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold"/>
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

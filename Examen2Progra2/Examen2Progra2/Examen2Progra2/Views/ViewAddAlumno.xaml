@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Examen2Progra2.ViewModel"
+             x:Class="Examen2Progra2.Views.ViewAddAlumno"
+              BackgroundColor="#00378F">
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Agregar Alumno"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,40" />
+
+            <Entry x:Name="NombreEntry"
+                   Placeholder="Nombre Completo" 
+                   Text="{Binding NombreAlumno2}" 
+                   Margin="0,0,0,20"/>
+
+            <Button Text="Agregar Nuevo Alumno" 
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="Center" 
+                    BackgroundColor="#ECD444"
+                    TextColor="White"
+                    Margin="0,20,0,0" 
+                    FontAttributes="Bold"
+                    Command="{Binding AgregarAlumnoCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Examen2Progra2.ViewModel" x:DataType="local:ViewModelCrearMateria"
+             x:Class="Examen2Progra2.Views.CrearMateria"
+              BackgroundColor="#00378F">
+            
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Crear una nueva Materia" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Margin="0,20"/>
+            <StackLayout Orientation="Horizontal" Margin="0,20">
+                <Label Text="Numero de Fase:" VerticalOptions="Center" WidthRequest="150"/>
+                <Entry Keyboard="Numeric" Text="{Binding FaseClase}" Placeholder="Ingrese el numero de Fase" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Numero de Semana:" VerticalOptions="Center" WidthRequest="150"/>
+                <Entry Keyboard="Numeric"  Placeholder="Ingrese el numero de semana" Text="{Binding SemanaClase}"/>
+            </StackLayout>
+            <Picker Title="Seleccionar tipo de materia"
+                SelectedItem="{Binding TipoMateria}" Margin="0,20">
+                <Picker.Items>
+                    <x:String>Materia Fin De Semana</x:String>
+                    <x:String>Materia Dia De Semana</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Crear materia" Command="{Binding CrearMateriaCommand}" Margin="0,20" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

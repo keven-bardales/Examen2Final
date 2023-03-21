@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Examen2Progra2.ViewModel" 
+             x:Class="Examen2Progra2.Views.ViewMaestro"
+             BackgroundColor="#00378F">
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="{Binding MensajeBienvenida}"
+                   Margin="0,20,0,20"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   TextColor="White" />
+
+            <CollectionView ItemsSource="{Binding Materias}"
+                            x:Name="CollectionMaterias"
+                            Margin="0,5,0,0"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding MateriaSeleccionada}"
+                            SelectionChangedCommand="{Binding NavigateMateriaCommand}">
+                <CollectionView.Header>
+                    <Grid BackgroundColor="#ECD444"
+                          Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Fase"
+                               Grid.Column="0"
+                               FontAttributes="Bold"
+                               TextColor="#333333" />
+                        <Label Text="Semana"
+                               Grid.Column="1"
+                               FontAttributes="Bold"
+                               TextColor="#333333" />
+                        <Label Text="Maestro"
+                               Grid.Column="2"
+                               FontAttributes="Bold"
+                               TextColor="#333333" />
+                        <Label Text="Tipo de Clase"
+                               Grid.Column="3"
+                               FontAttributes="Bold"
+                               TextColor="#333333" />
+                    </Grid>
+                </CollectionView.Header>
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="20"></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="white"
+                              Padding="10"
+                              ColumnSpacing="5"
+                              RowSpacing="5">
+                            <BoxView Grid.Row="0"
+                                     Grid.ColumnSpan="4"
+                                     HeightRequest="1" />
+                            <Label Text="{Binding faseClase}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   TextColor="#333333" />
+                            <Label Text="{Binding semanaClase}"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   FontAttributes="Bold"
+                                   TextColor="#333333" />
+                            <Label Text="{Binding maestroasignado.nombreMaestro}"
+                                   Grid.Row="1"
+                                   Grid.Column="2"
+                                   FontAttributes="Bold"
+                                   TextColor="#333333" />
+                            <Label Text="{Binding tipoMateria}"
+                                   Grid.Row="1"
+                                   Grid.Column="3"
+                                   FontAttributes="Bold"
+                                   TextColor="#333333" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Crear Nueva Materia"
+                    Command="{Binding CreateMateriaCommand}"
+                    Margin="0,20,0,0"
+                    BackgroundColor="#ECD444"
+                    TextColor="White"
+                    Padding="10"
+                    FontAttributes="Bold"
+                    FontSize="Medium" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Examen2Progra2.ViewModel"
+             x:Class="Examen2Progra2.Views.ViewMateria"
+             BackgroundColor="#00378F">
+
+    <ContentPage.Content>
+
+        <StackLayout  Margin="10">
+
+            <Label Text="Pagina de Materia" FontSize="24" FontAttributes="Bold" Margin="0,0,0,40" TextColor="White" />
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+
+                <Button Text="Tomar Asistencia" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10" Command="{Binding NavigateMenuCommand}" CommandParameter="1" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold" />
+                <Button Text="Agregar Alumno" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10" Command="{Binding NavigateMenuCommand}" CommandParameter="2" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold" />
+
+            </StackLayout>
+
+            
+
+            <CollectionView ItemsSource="{Binding Alumnos}"
+                            x:Name="CollectionAlumnos"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding AlumnoSeleccionado}"
+                            VerticalOptions="CenterAndExpand"
+                            SelectionChangedCommand="{Binding NavigateAlumnoCommand}"
+                            Margin="0,20">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="10"></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                
+                
+                <CollectionView.Header>
+                    <Label VerticalOptions="Center" HeightRequest="40" Text="Lista de Alumnos" Grid.Column="0" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" 
+                           BackgroundColor="#ECD444"/>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="15"
+                               BackgroundColor="White">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="{Binding nombreAlumno}"  TextColor="#333333" FontAttributes="Bold" />
+
+                            </StackLayout>
+                        </Frame>
+                       
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

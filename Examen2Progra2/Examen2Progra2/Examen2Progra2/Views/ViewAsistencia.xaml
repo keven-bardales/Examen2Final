@@ -1,0 +1,29 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:local="clr-namespace:Examen2Progra2.ViewModel"
+          x:Class="Examen2Progra2.Views.ViewAsistencia"
+          BackgroundColor="#00378F">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Lista de Alumnos:" FontSize="Medium" FontAttributes="Bold" Margin="0,0,0,10" TextColor="White" />
+
+            <ListView ItemsSource="{Binding ListaAlumnos}" SeparatorColor="#ECECEC">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White">
+                                <Label Text="{Binding nombreAlumno}" VerticalOptions="Center" TextColor="#333333" FontAttributes="Bold" />
+                                <Switch IsToggled="{Binding presente}" VerticalOptions="Center" />
+                                <Label Text="{Binding AsistenciasCount, StringFormat='Asistencias: {0}'}" VerticalOptions="Center" TextColor="#333333" Margin="10,0,0,0"/>
+                                <Label Text="{Binding InasistenciasCount, StringFormat='Inasistencias: {0}'}" VerticalOptions="Center" TextColor="#333333"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Guardar Asistencias" Command="{Binding GuardarAsistenciasCommand}" Margin="20,30" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

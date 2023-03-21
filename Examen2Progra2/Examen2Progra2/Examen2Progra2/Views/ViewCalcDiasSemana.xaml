@@ -1,0 +1,44 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen2Progra2.Views.ViewCalcDiasSemana"
+             BackgroundColor="#00378F">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <Label Text="Ingresar notas de alumno" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="10" TextColor="White"/>
+
+            <Picker x:Name="diasPicker" Title="Seleccione un día de la semana" Margin="10" SelectedItem="{Binding DiaSeleccionado}">
+                <Picker.Items>
+                    <x:String>Lunes</x:String>
+                    <x:String>Martes</x:String>
+                    <x:String>Miércoles</x:String>
+                    <x:String>Jueves</x:String>
+                    <x:String>Viernes</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <StackLayout Orientation="Horizontal" Margin="10">
+
+                <Label Text="Nota 1:" VerticalOptions="Center" WidthRequest="70" TextColor="White"/>
+                <Entry x:Name="nota1Entry" Text="{Binding Nota1}" Keyboard="Numeric" WidthRequest="70" Margin="5"/>
+
+                <Label Text="Nota 2:" VerticalOptions="Center" WidthRequest="70" TextColor="White"/>
+                <Entry x:Name="nota2Entry" Text="{Binding Nota2}"  Keyboard="Numeric" WidthRequest="70" Margin="5"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="10">
+
+                <Label Text="Nota 3:" VerticalOptions="Center" WidthRequest="70" TextColor="White"/>
+                <Entry x:Name="nota3Entry" Text="{Binding Nota3}" Keyboard="Numeric" WidthRequest="70" Margin="5"/>
+
+                <Label Text="Nota 4:" VerticalOptions="Center" WidthRequest="70" TextColor="White"/>
+                <Entry x:Name="nota4Entry" Text="{Binding Nota4}" Keyboard="Numeric" WidthRequest="70" Margin="5"/>
+
+            </StackLayout>
+
+            <Button Text="Guardar notas" HorizontalOptions="FillAndExpand" Margin="10" Command="{Binding CalcNotaCommand}" BackgroundColor="#ECD444" TextColor="White" FontAttributes="Bold" CornerRadius="10"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
